@@ -85,7 +85,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         layout.collectionView?.backgroundColor = .red
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .yellow
+        collectionView.backgroundColor = .brown
         collectionView.delegate = self
         collectionView.dataSource = self
 

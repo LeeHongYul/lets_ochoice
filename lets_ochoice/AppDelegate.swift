@@ -18,6 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = splashViewController
             window?.makeKeyAndVisible()
             
+            
+            if let config = Bundle.main.object(forInfoDictionaryKey: "Config") as? [String: String] {
+                if let test = config["MBS_URL"] {
+                    print("THIS IS CONFIG:" + test)
+                }
+            }
+            
+            
             return true
         }
 
