@@ -12,7 +12,7 @@ final class TerminalKeyManager {
     static let shared = TerminalKeyManager()
     private init() {}
 
-    private let terminalKeyKey = "terminalKey" // Key for storage
+    private let terminalKeyKey = "terminalKey"
     private let userDefaults = UserDefaults.standard
 
     /// 앱 실행 시 terminalKey를 가져오는 메서드
@@ -59,6 +59,7 @@ final class TerminalKeyManager {
 
     /// TerminalKey를 UserDefaults에서 가져오기
     func getTerminalKey() -> String? {
+        print("Key:" + userDefaults.string(forKey: terminalKeyKey)!)
         return userDefaults.string(forKey: terminalKeyKey)
     }
     

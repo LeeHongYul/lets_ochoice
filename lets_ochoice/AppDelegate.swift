@@ -14,6 +14,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
             window = UIWindow(frame: UIScreen.main.bounds)
+            // TerminalKey 가져오기
+                    TerminalKeyManager.shared.fetchTerminalKey(deviceId: "D0A92F40-874F-4B41-87A2-AA9A531C18BF") { result in
+                        switch result {
+                        case .success(let terminalKey):
+                            print("Fetched TerminalKey: \(terminalKey)")
+                        case .failure(let error):
+                            print("Failed to fetch TerminalKey: \(error)")
+                        }
+                    }
+
             let splashViewController = SplashViewController()
             window?.rootViewController = splashViewController
             window?.makeKeyAndVisible()

@@ -32,9 +32,10 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         ]
     ]
     
-    let parameters = [
-        "terminalKey": "8660E0B97948158435BAE28103C3BD6",
-    ]
+    
+        
+  
+    
 
     private var collectionView: UICollectionView!
 
@@ -42,6 +43,19 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         super.viewDidLoad()
         view.backgroundColor = .white
         setupCollectionView()
+        
+        if let terminalKey = TerminalKeyManager.shared.getTerminalKey() {
+               let parameters = [
+                   "terminalKey": terminalKey
+               ]
+               getMainList(parameters: parameters)
+           } else {
+               print("Error: Terminal key not found in UserDefaults")
+           }
+
+        
+       
+        
     }
     
     //getMainList(parameters: parameters)
