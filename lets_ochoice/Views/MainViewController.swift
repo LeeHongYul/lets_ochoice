@@ -42,9 +42,9 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         super.viewDidLoad()
         view.backgroundColor = .white
         setupCollectionView()
-        getMainList(parameters: parameters)
-        
     }
+    
+    //getMainList(parameters: parameters)
     
     private func getMainList(parameters: [String: String]) {
         // URLComponents를 사용하여 쿼리 파라미터 추가

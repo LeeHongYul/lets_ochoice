@@ -61,4 +61,9 @@ final class TerminalKeyManager {
     func getTerminalKey() -> String? {
         return userDefaults.string(forKey: terminalKeyKey)
     }
+    
+    /// TerminalKey를 UserDefaults에서 지우기
+    func clearTerminalKey() {
+          userDefaults.removeObject(forKey: terminalKeyKey)
+      }
 }
