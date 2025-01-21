@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +15,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
             window = UIWindow(frame: UIScreen.main.bounds)
+            
+            // Firebase 연동
+            FirebaseApp.configure()
+
+            // singleton을 얻어서 세팅
+            let remoteConfig = RemoteConfig.remoteConfig()
+            let settings = RemoteConfigSettings()
+
+            // fetchInterval 값 설정: https://firebase.google.com/docs/remote-config/get-started?platform=ios&hl=ko#throttling
+            settings.minimumFetchInterval = 0
+            remoteConfig.configSettings = settings
+            
+            
             // TerminalKey 가져오기
                     TerminalKeyManager.shared.fetchTerminalKey(deviceId: "D0A92F40-874F-4B41-87A2-AA9A531C18BF") { result in
                         switch result {
