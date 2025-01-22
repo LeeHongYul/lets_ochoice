@@ -59,7 +59,7 @@ final class TerminalKeyManager {
 
     /// TerminalKey를 UserDefaults에서 가져오기
     func getTerminalKey() -> String? {
-        print("Key:" + userDefaults.string(forKey: terminalKeyKey)!)
+       
         return userDefaults.string(forKey: terminalKeyKey)
     }
     
