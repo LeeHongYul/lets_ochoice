@@ -15,5 +15,6 @@ target 'lets_ochoice' do
   target 'lets_ochoiceUITests' do
     # Pods for testing
   end
+pod 'Firebase'
 pod 'Firebase/RemoteConfig'
 end

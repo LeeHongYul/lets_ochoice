@@ -6,7 +6,8 @@
 //
 
 import UIKit
-import Firebase
+import FirebaseCore
+import FirebaseRemoteConfig
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
