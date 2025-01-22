@@ -6,7 +6,6 @@ target 'lets_ochoice' do
   use_frameworks!
 
   # Pods for lets_ochoice
-  pod 'Firebase/RemoteConfig'
 
   target 'lets_ochoiceTests' do
     inherit! :search_paths
@@ -16,5 +15,5 @@ target 'lets_ochoice' do
   target 'lets_ochoiceUITests' do
     # Pods for testing
   end
-
+pod 'Firebase/RemoteConfig'
 end

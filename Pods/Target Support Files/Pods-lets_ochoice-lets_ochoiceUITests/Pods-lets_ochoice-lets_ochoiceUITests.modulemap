@@ -1,6 +1,0 @@
-framework module Pods_lets_ochoice_lets_ochoiceUITests {
-  umbrella header "Pods-lets_ochoice-lets_ochoiceUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}
