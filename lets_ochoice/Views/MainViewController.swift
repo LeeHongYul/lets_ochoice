@@ -45,8 +45,8 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
             print("Invalid URL with parameters")
             return
         }
-
-        NetworkManager.shared.fetchData(from: url) { (result: Result<MainCategoryList, Error>) in
+        
+        NetworkManager.shared.fetchData(from: url, parameters: parameters) { (result: Result<MainCategoryList, Error>) in
             switch result {
             case .success(let data):
                 print("Data received: \(data)")
@@ -58,6 +58,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 print("Error: \(error.localizedDescription)")
             }
         }
+
     }
 
     // MARK: UICollectionViewDataSource

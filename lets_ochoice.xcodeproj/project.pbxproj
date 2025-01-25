@@ -10,6 +10,7 @@
 		9B61FE112D41416D0057012F /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 9B61FE102D41416D0057012F /* FirebaseCore */; };
 		9B61FE132D4141740057012F /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 9B61FE122D4141740057012F /* FirebaseRemoteConfig */; };
 		9B80D5FE2D4483EB002A1EF5 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B80D5FD2D4483EB002A1EF5 /* DetailViewController.swift */; };
+		9B80D6002D44AA73002A1EF5 /* ContentGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B80D5FF2D44AA73002A1EF5 /* ContentGroupModel.swift */; };
 		9BDB58A92D3F5FC50010EF6F /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDB588C2D3F5FC50010EF6F /* Constant.swift */; };
 		9BDB58AA2D3F5FC50010EF6F /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDB588E2D3F5FC50010EF6F /* Movie.swift */; };
 		9BDB58AB2D3F5FC50010EF6F /* MainCategoryListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDB58902D3F5FC50010EF6F /* MainCategoryListData.swift */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		9B80D5FD2D4483EB002A1EF5 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		9B80D5FF2D44AA73002A1EF5 /* ContentGroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentGroupModel.swift; sourceTree = "<group>"; };
 		9BC39BFE2D354935006FAAD1 /* lets_ochoice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lets_ochoice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BC39C142D354937006FAAD1 /* lets_ochoiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = lets_ochoiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BC39C1E2D354937006FAAD1 /* lets_ochoiceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = lets_ochoiceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +166,7 @@
 			children = (
 				9BDB588F2D3F5FC50010EF6F /* movieData */,
 				9BDB58902D3F5FC50010EF6F /* MainCategoryListData.swift */,
+				9B80D5FF2D44AA73002A1EF5 /* ContentGroupModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				9BDB58AB2D3F5FC50010EF6F /* MainCategoryListData.swift in Sources */,
 				9BDB58AC2D3F5FC50010EF6F /* NetworkManager.swift in Sources */,
 				9BDB58AD2D3F5FC50010EF6F /* SplashViewController.swift in Sources */,
+				9B80D6002D44AA73002A1EF5 /* ContentGroupModel.swift in Sources */,
 				9BDB58AE2D3F5FC50010EF6F /* TerminalKeyManager.swift in Sources */,
 				9BDB58AF2D3F5FC50010EF6F /* CategoryItemCell.swift in Sources */,
 				9BDB58B02D3F5FC50010EF6F /* MovieCell.swift in Sources */,
