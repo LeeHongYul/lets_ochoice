@@ -21,14 +21,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 
                 window = UIWindow(windowScene: windowScene)
                 
-                // ViewController를 내비게이션 컨트롤러에 넣음
-                let viewController = MainViewController()
-                //let navigationController = UINavigationController(rootViewController: viewController)
                 
-                // window의 rootViewController로 내비게이션 컨트롤러 설정
-                window?.rootViewController = viewController
-                window?.makeKeyAndVisible()
-        
+        let mainViewController = MainViewController()
+        let navigationController = UINavigationController(rootViewController: mainViewController)
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
        
     }
 

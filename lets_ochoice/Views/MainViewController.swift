@@ -15,6 +15,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         collectionView.register(SectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeaderView.identifier)
         return collectionView
     }()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,7 +85,21 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
         return UICollectionReusableView()
     }
+    
+    // MARK: UICollectionViewDelegate
 
+        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+            
+            // Navigate to a detail screen or perform an action
+            let selectedItem = categoryLists[indexPath.section].categoryItemList[indexPath.item]
+            print("Selected item: \(selectedItem.id)")
+            
+               let detailViewController = DetailViewController(id: selectedItem.id)
+               navigationController?.pushViewController(detailViewController, animated: true)
+        }
+    
+    
     // MARK: Compositional Layout
 
     private func createCompositionalLayout() -> UICollectionViewLayout {
