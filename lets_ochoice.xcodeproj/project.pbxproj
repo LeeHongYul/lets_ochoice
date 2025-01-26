@@ -12,6 +12,8 @@
 		9B80D5FE2D4483EB002A1EF5 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B80D5FD2D4483EB002A1EF5 /* DetailViewController.swift */; };
 		9B80D6002D44AA73002A1EF5 /* ContentGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B80D5FF2D44AA73002A1EF5 /* ContentGroupModel.swift */; };
 		9B80D6022D45C3C7002A1EF5 /* PlayMovieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B80D6012D45C3C7002A1EF5 /* PlayMovieController.swift */; };
+		9B80D6042D45DB0B002A1EF5 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B80D6032D45DB0B002A1EF5 /* MyPageViewController.swift */; };
+		9B80D6062D45DC68002A1EF5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B80D6052D45DC68002A1EF5 /* TabBarController.swift */; };
 		9BDB58A92D3F5FC50010EF6F /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDB588C2D3F5FC50010EF6F /* Constant.swift */; };
 		9BDB58AA2D3F5FC50010EF6F /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDB588E2D3F5FC50010EF6F /* Movie.swift */; };
 		9BDB58AB2D3F5FC50010EF6F /* MainCategoryListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDB58902D3F5FC50010EF6F /* MainCategoryListData.swift */; };
@@ -54,6 +56,8 @@
 		9B80D5FD2D4483EB002A1EF5 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		9B80D5FF2D44AA73002A1EF5 /* ContentGroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentGroupModel.swift; sourceTree = "<group>"; };
 		9B80D6012D45C3C7002A1EF5 /* PlayMovieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayMovieController.swift; sourceTree = "<group>"; };
+		9B80D6032D45DB0B002A1EF5 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		9B80D6052D45DC68002A1EF5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		9BC39BFE2D354935006FAAD1 /* lets_ochoice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lets_ochoice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BC39C142D354937006FAAD1 /* lets_ochoiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = lets_ochoiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BC39C1E2D354937006FAAD1 /* lets_ochoiceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = lets_ochoiceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -202,6 +206,8 @@
 				9BDB589C2D3F5FC50010EF6F /* ViewController.swift */,
 				9B80D5FD2D4483EB002A1EF5 /* DetailViewController.swift */,
 				9B80D6012D45C3C7002A1EF5 /* PlayMovieController.swift */,
+				9B80D6032D45DB0B002A1EF5 /* MyPageViewController.swift */,
+				9B80D6052D45DC68002A1EF5 /* TabBarController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -371,6 +377,7 @@
 				9BDB58A92D3F5FC50010EF6F /* Constant.swift in Sources */,
 				9BDB58AA2D3F5FC50010EF6F /* Movie.swift in Sources */,
 				9BDB58AB2D3F5FC50010EF6F /* MainCategoryListData.swift in Sources */,
+				9B80D6062D45DC68002A1EF5 /* TabBarController.swift in Sources */,
 				9BDB58AC2D3F5FC50010EF6F /* NetworkManager.swift in Sources */,
 				9BDB58AD2D3F5FC50010EF6F /* SplashViewController.swift in Sources */,
 				9B80D6002D44AA73002A1EF5 /* ContentGroupModel.swift in Sources */,
@@ -378,6 +385,7 @@
 				9BDB58AF2D3F5FC50010EF6F /* CategoryItemCell.swift in Sources */,
 				9BDB58B02D3F5FC50010EF6F /* MovieCell.swift in Sources */,
 				9BDB58B12D3F5FC50010EF6F /* MainViewController.swift in Sources */,
+				9B80D6042D45DB0B002A1EF5 /* MyPageViewController.swift in Sources */,
 				9BDB58B22D3F5FC50010EF6F /* SectionHeaderView.swift in Sources */,
 				9BDB58B32D3F5FC50010EF6F /* ViewController.swift in Sources */,
 				9BDB58B42D3F5FC50010EF6F /* AppDelegate.swift in Sources */,

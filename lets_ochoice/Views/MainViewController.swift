@@ -105,21 +105,35 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     private func createCompositionalLayout() -> UICollectionViewLayout {
         return UICollectionViewCompositionalLayout { sectionIndex, _ in
-            // Item
-            let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(100), heightDimension: .absolute(150))
+            // Get the category for the section
+            let category = self.categoryLists[sectionIndex]
+            
+            // Item size adjustment for the specific category with id 1089
+            let isSpecialCategory = category.id == 1089
+            let itemWidth: CGFloat = isSpecialCategory ? 300 : 100 // Larger width for special category
+            let itemHeight: CGFloat = isSpecialCategory ? 300 : 150 // Height for special category
+
+            let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(itemWidth), heightDimension: .absolute(itemHeight))
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
             item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
 
-            // Group
-            let groupSize = NSCollectionLayoutSize(widthDimension: .estimated(500), heightDimension: .absolute(150))
+            // Group size based on the item size
+            let groupSize = NSCollectionLayoutSize(widthDimension: .estimated(500), heightDimension: .absolute(itemHeight))
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
 
-            // Section
+            // Section configuration
             let section = NSCollectionLayoutSection(group: group)
-            section.orthogonalScrollingBehavior = .continuous // 가로 스크롤 설정
+            
+            if isSpecialCategory {
+                // Enable horizontal scrolling for the special category, displaying one item at a time
+                section.orthogonalScrollingBehavior = .continuous
+            } else {
+                section.orthogonalScrollingBehavior = .continuous // Enable horizontal scroll for other categories
+            }
+            
             section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
 
-            // Header
+            // Header configuration
             let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(50))
             let header = NSCollectionLayoutBoundarySupplementaryItem(
                 layoutSize: headerSize,
@@ -131,5 +145,6 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
             return section
         }
     }
+
 }
 
