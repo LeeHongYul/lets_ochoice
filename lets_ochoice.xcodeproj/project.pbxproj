@@ -71,7 +71,9 @@
 				ViewController/SectionHeaderView.swift,
 				ViewController/TabBarController.swift,
 				ViewController/ViewController.swift,
+				ViewModel/DetailViewModel.swift,
 				ViewModel/MainViewModel.swift,
+				ViewModel/PlayMovieViewModel.swift,
 			);
 			target = 9BC39BFD2D354935006FAAD1 /* lets_ochoice */;
 		};
