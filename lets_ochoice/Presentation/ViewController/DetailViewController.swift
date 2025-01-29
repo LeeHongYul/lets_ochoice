@@ -65,6 +65,16 @@ class DetailViewController: UIViewController {
         watchButton.layer.cornerRadius = 10
         view.addSubview(watchButton)
         
+        // Share Button
+        let shareButton = UIButton(type: .system)
+        shareButton.setTitle("공유하기", for: .normal)
+        shareButton.addTarget(self, action: #selector(shareButtonTapped), for: .touchUpInside)
+        shareButton.translatesAutoresizingMaskIntoConstraints = false
+        shareButton.backgroundColor = .green
+        shareButton.setTitleColor(.white, for: .normal)
+        shareButton.layer.cornerRadius = 10
+        view.addSubview(shareButton)
+        
         // Constraints
         NSLayoutConstraint.activate([
             posterImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
@@ -75,6 +85,11 @@ class DetailViewController: UIViewController {
             contentStackView.leadingAnchor.constraint(equalTo: posterImageView.trailingAnchor, constant: 16),
             contentStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             contentStackView.topAnchor.constraint(equalTo: posterImageView.topAnchor),
+            
+            shareButton.bottomAnchor.constraint(equalTo: watchButton.topAnchor, constant: -16),
+            shareButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            shareButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            shareButton.heightAnchor.constraint(equalToConstant: 50),
             
             watchButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),
             watchButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
@@ -118,6 +133,18 @@ class DetailViewController: UIViewController {
         let playMovieController = PlayMovieController(movieUrl: movieUrl)
         navigationController?.pushViewController(playMovieController, animated: true)
     }
+    
+    @objc private func shareButtonTapped() {
+        guard let movieUrl = detailViewModel.movieUrl else {
+            print("Error: Movie URL is not available")
+            return
+        }
+        
+        let activityViewController = UIActivityViewController(activityItems: [movieUrl], applicationActivities: nil)
+        
+        present(activityViewController, animated: true, completion: nil)
+    }
+
 }
 
 
