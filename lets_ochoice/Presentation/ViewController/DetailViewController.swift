@@ -70,7 +70,7 @@ class DetailViewController: UIViewController {
         shareButton.setTitle("공유하기", for: .normal)
         shareButton.addTarget(self, action: #selector(shareButtonTapped), for: .touchUpInside)
         shareButton.translatesAutoresizingMaskIntoConstraints = false
-        shareButton.backgroundColor = .green
+        shareButton.backgroundColor = .blue
         shareButton.setTitleColor(.white, for: .normal)
         shareButton.layer.cornerRadius = 10
         view.addSubview(shareButton)
