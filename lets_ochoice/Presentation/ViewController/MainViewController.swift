@@ -75,8 +75,9 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedItem = viewModel.categoryLists[indexPath.section].categoryItemList[indexPath.item]
+        print("QWE \(selectedItem)")
         print("Selected item: \(selectedItem.id)")
-        let detailViewController = DetailViewController(id: selectedItem.id)
+        let detailViewController = DetailViewController(id: selectedItem.id, type: selectedItem.type)
         navigationController?.pushViewController(detailViewController, animated: true)
     }
 

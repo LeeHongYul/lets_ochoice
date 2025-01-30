@@ -4,8 +4,8 @@ class DetailViewController: UIViewController {
     
     private let detailViewModel: DetailViewModel
     
-    init(id: Int) {
-        self.detailViewModel = DetailViewModel(id: id)
+    init(id: Int, type: String) {
+        self.detailViewModel = DetailViewModel(id: id, type: type)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -17,7 +17,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .black
         // 데이터 fetch 및 UI 구성
-        detailViewModel.fetchContentsGroupInfo { [weak self] in
+        detailViewModel.fetchContentsGroupInfo(type: detailViewModel.type) { [weak self] in
             DispatchQueue.main.async {
                 self?.setupUI()
             }
@@ -141,6 +141,18 @@ class DetailViewController: UIViewController {
         }
         
         let activityViewController = UIActivityViewController(activityItems: [movieUrl], applicationActivities: nil)
+        
+        activityViewController.completionWithItemsHandler = { (activityType: UIActivity.ActivityType?, completed: Bool, arrayReturnedItems: [Any]?, error: Error?) in
+            if completed {
+                self.showToast(message: "share success", font: .boldSystemFont(ofSize: 10))
+            } else {
+                self.showToast(message: "share cancel",  font: .boldSystemFont(ofSize: 10))
+            }
+            if let shareError = error {
+                self.showToast(message: "\(shareError.localizedDescription)",  font: .boldSystemFont(ofSize: 10))
+            }
+        }
+      
         
         present(activityViewController, animated: true, completion: nil)
     }
