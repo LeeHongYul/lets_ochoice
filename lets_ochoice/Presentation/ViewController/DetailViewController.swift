@@ -135,28 +135,41 @@ class DetailViewController: UIViewController {
     }
     
     @objc private func shareButtonTapped() {
-        guard let movieUrl = detailViewModel.movieUrl else {
-            print("Error: Movie URL is not available")
+        let id = detailViewModel.id
+        let type = detailViewModel.type
+        
+        // 딥링크 URL 생성
+        var components = URLComponents()
+        components.scheme = "deeplink"
+        components.host = "scene"
+        components.path = "/page"
+        components.queryItems = [
+            URLQueryItem(name: "controller", value: "detail"),
+            URLQueryItem(name: "id", value: "\(id)"),
+            URLQueryItem(name: "type", value: type)
+        ]
+        
+        guard let deepUrl = components.url else {
+            print("Error: Failed to create deep link URL")
             return
         }
         
-        let activityViewController = UIActivityViewController(activityItems: [movieUrl], applicationActivities: nil)
+        let activityViewController = UIActivityViewController(activityItems: [deepUrl], applicationActivities: nil)
         
-        activityViewController.completionWithItemsHandler = { (activityType: UIActivity.ActivityType?, completed: Bool, arrayReturnedItems: [Any]?, error: Error?) in
+        activityViewController.completionWithItemsHandler = { (activityType, completed, returnedItems, error) in
             if completed {
                 self.showToast(message: "share success", font: .boldSystemFont(ofSize: 10))
             } else {
-                self.showToast(message: "share cancel",  font: .boldSystemFont(ofSize: 10))
+                self.showToast(message: "share cancel", font: .boldSystemFont(ofSize: 10))
             }
             if let shareError = error {
-                self.showToast(message: "\(shareError.localizedDescription)",  font: .boldSystemFont(ofSize: 10))
+                self.showToast(message: "\(shareError.localizedDescription)", font: .boldSystemFont(ofSize: 10))
             }
         }
-      
         
         present(activityViewController, animated: true, completion: nil)
     }
-
+    
 }
 
 

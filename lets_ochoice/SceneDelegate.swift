@@ -31,6 +31,40 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
     }
     
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        guard let url = URLContexts.first?.url else { return }
+        
+        handleDeepLink(url)
+    }
+    
+    func handleDeepLink(_ url: URL) {
+        
+        let components = URLComponents(url: url, resolvingAgainstBaseURL: true)
+        
+        if let controller = components?.queryItems?.first(where: { $0.name == "controller" })?.value {
+            switch controller {
+            case "detail":
+                if let idString = components?.queryItems?.first(where: { $0.name == "id" })?.value,
+                   let id = Int(idString),
+                   let type = components?.queryItems?.first(where: { $0.name == "type" })?.value {
+                    navigationToDetailViewController(id: id, type: type)
+                } else {
+                    print("Invalid or missing id/type")
+                }
+            default:
+                fatalError("unknownController")
+            }
+        }
+    }
+    
+    func navigationToDetailViewController(id: Int, type: String) {
+        if let navigationController = window?.rootViewController as? UINavigationController {
+            let detailViewController = DetailViewController(id: id, type: type)
+            
+            navigationController.pushViewController(detailViewController, animated: true)
+        }
+    }
+    
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.
