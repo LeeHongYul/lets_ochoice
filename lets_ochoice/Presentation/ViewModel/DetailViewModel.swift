@@ -32,8 +32,6 @@ class DetailViewModel {
                 return
             }
             
-           
-            
             NetworkManager.shared.fetchData(from: url, parameters: parameters) { (result: Result<ContentGroupModel, Error>) in
                 switch result {
                 case .success(let contentGroupModel):
@@ -53,7 +51,6 @@ class DetailViewModel {
                 }
             }
         } else {
-            print("Qweqwe \(id)")
             parameters = ["pageSize": 10, "pageNo": 1, "seriesId": id]
             urlString = APIManager.shared.baseMBSURL + "/v3/series"
             
@@ -69,16 +66,11 @@ class DetailViewModel {
                 return
             }
             
-           
-            
             NetworkManager.shared.fetchData(from: url, parameters: parameters) { (result: Result<SeriesModel, Error>) in
-                print("RWWWWW \(result)")
+                
                 switch result {
-        
                 case .success(let seriesModel):
-                    print("enter is is ")
                     if let offer = seriesModel.series.contentList.first {
-                        print("OFFFER IS \(offer)")
                         self.movieUrl = self.modifyMovieUrl(offer.movieURL)
                         self.contentTitle = offer.title
                         self.synopsis = offer.synopsis
@@ -87,15 +79,13 @@ class DetailViewModel {
                         self.director = offer.director
                         self.posterURL = offer.posterURL
                     }
-                        completion()
+                    completion()
                     
                 case .failure(let error):
                     print("Error fetching data: \(error.localizedDescription)")
                 }
             }
         }
-        
-        
     }
     
     private func modifyMovieUrl(_ originalUrl: String) -> String {

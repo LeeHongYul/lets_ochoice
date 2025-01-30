@@ -68,17 +68,6 @@ class MovieCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    func setup(with movie: Movie) {
-
-        titleLabel.text = movie.title
-        titleLabel.textColor = .black
-        authorLabel.text = "Directed by \(movie.author)"
-        synopsisLabel.text = movie.synopsis
-        synopsisLabel.textColor = .lightGray
-        
-        downloadImage(from: movie.posterImageURL)
-    }
     
     private func downloadImage(from urlString: String) {
         // urlString을 URL로 변환
@@ -99,5 +88,4 @@ class MovieCell: UICollectionViewCell {
             }
         }
     }
-
 }

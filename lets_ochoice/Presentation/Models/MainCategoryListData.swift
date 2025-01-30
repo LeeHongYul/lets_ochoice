@@ -17,7 +17,7 @@ struct MainCategoryList: Codable {
     }
 }
 
-//// MARK: - CategoryList
+// MARK: - CategoryList
 struct CategoryList: Codable {
     let id: Int
     let title: String
@@ -30,7 +30,7 @@ struct CategoryList: Codable {
     }
 }
 
-//// MARK: - CategoryItemList
+// MARK: - CategoryItemList
 struct CategoryItemList: Codable {
     let id: Int
     let title: String
