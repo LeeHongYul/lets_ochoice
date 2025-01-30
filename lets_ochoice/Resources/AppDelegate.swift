@@ -28,6 +28,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             settings.minimumFetchInterval = 0
             remoteConfig.configSettings = settings
             
+            // RemoteConfig 값 가져오기
+            remoteConfig.fetchAndActivate { status, error in
+                if status != .error {
+                    if let jsonString = remoteConfig["Config"].stringValue as String? {
+                        if let data = jsonString.data(using: .utf8) {
+                            do {
+                                let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+                                if let ios = json?["ios"] as? [String: Any] {
+                                    if let forcedUpdate = ios["forcedUpdate"] as? [String: Any] {
+                                        let minSupportedVersion = forcedUpdate["minSupportedVersion"] as? String
+                                        print("Min Supported Version: \(minSupportedVersion ?? "N/A")")
+                                    }
+                                }
+                            } catch {
+                                print("Error parsing JSON: \(error.localizedDescription)")
+                            }
+                        }
+                    } else {
+                        print("Failed to fetch iOS config")
+                    }
+                } else {
+                    print("RemoteConfig fetch error: \(error?.localizedDescription ?? "Unknown error")")
+                }
+            }
             
             // TerminalKey 가져오기
                     TerminalKeyManager.shared.fetchTerminalKey(deviceId: "D0A92F40-874F-4B41-87A2-AA9A531C18BF") { result in
